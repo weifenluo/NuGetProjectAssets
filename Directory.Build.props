@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Trimmable')) or $(MSBuildProjectName.Contains('.Trimmable.'))">
+    <IsTrimmableProject>true</IsTrimmableProject>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsTrimmableProject Condition ="$(IsTrimmableProject) == ''">false</IsTrimmableProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(IsTrimmableProject)">
+    <DefineConstants>TRIMMABLE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\Trimmable</BaseIntermediateOutputPath>
+    <BaseOutputPath>bin\Trimmable</BaseOutputPath>
+  </PropertyGroup>
+</Project>
